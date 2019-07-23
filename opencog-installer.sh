@@ -41,7 +41,7 @@ done
 #ubuntu
 if [ "$dist" == "ubuntu" ]
 then
-  wget https://raw.githubusercontent.com/opencog/ocpkg/master/ocpkg && chmod 755 ./ocpkg
+  wget https://raw.githubusercontent.com/singnet/ocpkg/master/ocpkg && chmod 755 ./ocpkg
   echo "Downloaded ockpg. Run it with ./ocpkg"
   #Since we aren't installing for Ubuntu via this script, we exit here.
   exit 0
@@ -52,19 +52,19 @@ then
   #Nothing weird for Debian. We will continue to the universal install menu.
 elif [ "$dist" == "fedora" ]
 then
-  wget https://raw.githubusercontent.com/opencog/ocpkg/master/install-fedora-dependencies.sh && chmod 755 ./install-fedora-dependencies.sh
+  wget https://raw.githubusercontent.com/singnet/ocpkg/master/install-fedora-dependencies.sh && chmod 755 ./install-fedora-dependencies.sh
   echo "Downloaded install-fedora-dependencies.sh. Run it with ./install-fedora-dependencies.sh"
   #Since we aren't installing for Fedora via this script, we exit here. (This would be easy to implement though if Debian testing goes well.)
   exit 0
 elif [ "$dist" == "arch" ]
 then
-  wget https://raw.githubusercontent.com/opencog/ocpkg/master/install-archlinux-dependencies.sh && chmod 755 ./install-archlinux-dependencies.sh
+  wget https://raw.githubusercontent.com/singnet/ocpkg/master/install-archlinux-dependencies.sh && chmod 755 ./install-archlinux-dependencies.sh
   echo "Downloaded install-archlinux-dependencies.sh. Run it with ./install-archlinux-dependencies.sh"
   #Since we aren't installing for Arch via this script, we exit here.
   exit 0
 elif [ "$dist" == "opensuse" ]
 then
-  wget https://raw.githubusercontent.com/opencog/ocpkg/master/install-opensuse-dependencies.sh && chmod 755 ./install-opensuse-dependencies.sh
+  wget https://raw.githubusercontent.com/singnet/ocpkg/master/install-opensuse-dependencies.sh && chmod 755 ./install-opensuse-dependencies.sh
   echo "Downloaded install-opensuse-dependencies.sh. Run it with ./install-opensuse-dependencies.sh"
   #Since we aren't installing for openSUSE via this script, we exit here.
   exit 0
@@ -120,7 +120,7 @@ then
     cd /tmp/
     # cleaning up remnants from previous install failures, if any.
     rm -rf master.tar.gz cogutil-master/
-    wget https://github.com/opencog/cogutil/archive/master.tar.gz
+    wget https://github.com/singnet/cogutil/archive/master.tar.gz
     tar -xvf master.tar.gz
     cd cogutil-master/
     mkdir build
@@ -136,7 +136,7 @@ then
     cd /tmp/
    # cleaning up remnants from previous install failures, if any.
    rm -rf master.tar.gz atomspace-master/
-  wget https://github.com/opencog/atomspace/archive/master.tar.gz
+  wget https://github.com/singnet/atomspace/archive/master.tar.gz
   tar -xvf master.tar.gz
   cd atomspace-master/
   mkdir build
@@ -175,13 +175,13 @@ then
   #Fetch the dependency script using the dist variable as part of the path.
   wget https://raw.githubusercontent.com/"$gauthor"/"$rtdr"/"$branch"/"$dist"/install-"$dist"-dependencies.sh && chmod 755 ./install-"$dist"-dependencies.sh && sudo ./install-"$dist"-dependencies.sh && rm install-"$dist"-dependencies.sh
     read -p "Do not continue if there were errors in fetching the dependencies. Press [ENTER] to continue..."
-        echo "This is still in development. Pressing enter will use git pull to download opencog/atomspace/cogutil to current directory."
+        echo "This is still in development. Pressing enter will use git pull to download singnet/atomspace/cogutil to current directory."
         read -p "Download Opencog source to current path? (y/n) " gitclone
         if [ "$gitclone" == "y" ] || [ "$gitclone" == "Y" ]
         then
-          git clone https://github.com/opencog/opencog.git
-          git clone https://github.com/opencog/atomspace.git
-          git clone https://github.com/opencog/cogutil.git
+          git clone https://github.com/singnet/opencog.git
+          git clone https://github.com/singnet/atomspace.git
+          git clone https://github.com/singnet/cogutil.git
           echo "You should now be able to build according to the OpenCog for noobs instructions. Good luck!"
         else
             echo "Download of OpenCog aborted."

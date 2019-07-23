@@ -45,10 +45,10 @@ source ~/.bash_profile
 # Fetch OpenCog source repositories
 
 log="----------Fetching repositories from git----------"; report
-git clone git://github.com/opencog/cogutil
-git clone git://github.com/opencog/atomspace
-git clone git://github.com/opencog/moses
-git clone git://github.com/opencog/opencog
+git clone git://github.com/singnet/cogutil
+git clone git://github.com/singnet/atomspace
+git clone git://github.com/singnet/moses
+git clone git://github.com/singnet/opencog
 
 # Set environment path variables
 

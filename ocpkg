@@ -790,7 +790,7 @@ cd $CURRENT_DIR
 if [ "$EUID" -ne 0 ] ; then
     cd /tmp
     wget https://raw.githubusercontent.com/singnet/atomspace/master/opencog/haskell/stack.yaml
-    wget https://raw.githubusercontent.com/opencog/atomspace/master/opencog/haskell/opencog-atomspace.cabal
+    wget https://raw.githubusercontent.com/singnet/atomspace/master/opencog/haskell/opencog-atomspace.cabal
     stack --allow-different-user setup
 
     # hscolour is necessary for haddock documentation.

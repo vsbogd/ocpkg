@@ -115,7 +115,7 @@ install_opencog_python_packages(){
     cd /tmp
     # cleaning up remnants from previous install failures, if any.
     rm -f requirements.txt*
-    wget https://raw.githubusercontent.com/opencog/opencog/master/opencog/python/requirements.txt
+    wget https://raw.githubusercontent.com/singnet/opencog/master/opencog/python/requirements.txt
     # scipy, numpy & matplotlib if installed using python-pip will take a
     # long time as they have to be built before being installed. And the
     # arrifacts of the build occupies a lot of space blotting the docker image.
@@ -180,8 +180,8 @@ install_haskell_dependencies(){
     #    in this case, it doesn't use it.
     if [ "$EUID" -ne 0 ] ; then
         cd /tmp
-        wget https://raw.githubusercontent.com/opencog/atomspace/master/opencog/haskell/stack.yaml
-        wget https://raw.githubusercontent.com/opencog/atomspace/master/opencog/haskell/opencog-atomspace.cabal
+        wget https://raw.githubusercontent.com/singnet/atomspace/master/opencog/haskell/stack.yaml
+        wget https://raw.githubusercontent.com/singnet/atomspace/master/opencog/haskell/opencog-atomspace.cabal
         stack --allow-different-user setup
 
         # hscolour is necessary for haddock documentation.
@@ -351,7 +351,7 @@ install_opencog_cmake_project() {
         cd /tmp/
         # cleaning up remnants from previous install failures, if any.
         rm -rf master.tar.gz* "$1-master"
-        wget https://github.com/opencog/$1/archive/master.tar.gz
+        wget https://github.com/singnet/$1/archive/master.tar.gz
         tar -xvf master.tar.gz
         cd "$1-master/"
         build_source
@@ -442,12 +442,12 @@ update_source() {
 # TODO: make it path/symlink independent
 update_octool() {
      if [ "${BASH_SOURCE[0]}" == "/tmp/octool" ] &&
-         wget -q --spider https://github.com/opencog/ocpkg/blob/master/octool
+         wget -q --spider https://github.com/singnet/ocpkg/blob/master/octool
          then
          MESSAGE="Updating octool ...." ; message
          sudo rm /tmp/octool
          wget -pO /tmp/octool \
-            https://raw.githubusercontent.com/opencog/ocpkg/master/octool
+            https://raw.githubusercontent.com/singnet/ocpkg/master/octool
     fi
 }
 
@@ -490,8 +490,8 @@ set_opencog_setup_file() {
 update_cmake_project() {
     if is_opencog_cmake_project "$1" ; then
         local CURRENT_COMMIT_SHA=$(curl \
-            https://api.github.com/repos/opencog/$1/git/refs/heads/master \
-            |  grep https://api.github.com/repos/opencog/$1/git/commits \
+            https://api.github.com/repos/singnet/$1/git/refs/heads/master \
+            |  grep https://api.github.com/repos/singnet/$1/git/commits \
             | cut -d "/" -f 9)
     else
         MESSAGE="$1 is not yet known as an OpenCog project" ; message

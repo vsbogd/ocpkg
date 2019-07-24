@@ -75,7 +75,7 @@ cd /tmp
 rm requirements.txt
 #Fix for sslv3 Debian error
 sudo easy_install --upgrade pip
-wget https://raw.githubusercontent.com/opencog/opencog/master/opencog/python/requirements.txt
+wget https://raw.githubusercontent.com/singnet/opencog/master/opencog/python/requirements.txt
 sudo pip install -U -r /tmp/requirements.txt
 rm requirements.txt
 

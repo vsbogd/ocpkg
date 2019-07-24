@@ -6,7 +6,7 @@ is still work in progress.
 
 For a quick start using Ubuntu version >= 14.04, run
 ```
-sudo curl -L http://raw.github.com/opencog/ocpkg/master/ocpkg -o /usr/local/bin/octool &&\
+sudo curl -L http://raw.github.com/singnet/ocpkg/master/ocpkg -o /usr/local/bin/octool &&\
 sudo chmod +x /usr/local/bin/octool &&\
 octool
 ```

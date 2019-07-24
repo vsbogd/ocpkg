@@ -165,16 +165,16 @@ setup_sys_for_cc () {
     mkdir -p $CC_TC_SRC_DIR
     cd $CC_TC_SRC_DIR
     rm -rf  *
-    wget https://github.com/opencog/cogutil/archive/master.tar.gz
-    COGUTIL_COMMIT=$(curl https://api.github.com/repos/opencog/cogutil/commits/master | jq -r '.sha') 
+    wget https://github.com/singnet/cogutil/archive/master.tar.gz
+    COGUTIL_COMMIT=$(curl https://api.github.com/repos/singnet/cogutil/commits/master | jq -r '.sha') 
     tar $VERBOSE -xf master.tar.gz
     rm master.tar.gz
-    wget https://github.com/opencog/atomspace/archive/master.tar.gz
-    ATOMSPACE_COMMIT=$(curl https://api.github.com/repos/opencog/atomspace/commits/master | jq -r '.sha')
+    wget https://github.com/singnet/atomspace/archive/master.tar.gz
+    ATOMSPACE_COMMIT=$(curl https://api.github.com/repos/singnet/atomspace/commits/master | jq -r '.sha')
     tar $VERBOSE -xf master.tar.gz
     rm master.tar.gz
-    wget https://github.com/opencog/opencog/archive/master.tar.gz
-    OPENCOG_COMMIT=$(curl https://api.github.com/repos/opencog/opencog/commits/master | jq -r '.sha')
+    wget https://github.com/singnet/opencog/archive/master.tar.gz
+    OPENCOG_COMMIT=$(curl https://api.github.com/repos/singnet/opencog/commits/master | jq -r '.sha')
     tar $VERBOSE -xf master.tar.gz
     rm master.tar.gz
     for d in * ; do echo $d ; mkdir $d/build_hf ; done

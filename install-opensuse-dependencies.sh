@@ -86,7 +86,7 @@ rm -rf json-spirit_4.05.orig.tar.gz json_spirit_v4_05
 install_cogutil(){
 MESSAGE="Installing cogutil...." ; message
 cd /tmp/
-wget https://github.com/opencog/cogutil/archive/master.tar.gz
+wget https://github.com/singnet/cogutil/archive/master.tar.gz
 tar -xvf master.tar.gz
 cd cogutil-master/
 mkdir build
@@ -102,7 +102,7 @@ rm -rf master.tar.gz cogutil-master/
 install_python_packages(){
 MESSAGE="Installing python packages...." ; message
 cd /tmp
-wget https://raw.githubusercontent.com/opencog/opencog/master/opencog/python/requirements.txt
+wget https://raw.githubusercontent.com/singnet/opencog/master/opencog/python/requirements.txt
 sudo pip install -U -r /tmp/requirements.txt
 rm requirements.txt
 }
@@ -111,7 +111,7 @@ rm requirements.txt
 install_atomspace(){
 MESSAGE="Installing atomspace...." ; message
 cd /tmp/
-wget https://github.com/opencog/atomspace/archive/master.tar.gz
+wget https://github.com/singnet/atomspace/archive/master.tar.gz
 tar -xvf master.tar.gz
 cd atomspace-master/
 mkdir build

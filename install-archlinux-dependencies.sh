@@ -88,7 +88,7 @@ MESSAGE="Installing cogutil...." ; message
 cd /tmp/
 # cleaning up remnants from previous install failures, if any.
 rm -rf master.tar.gz cogutil-master/
-wget https://github.com/opencog/cogutil/archive/master.tar.gz
+wget https://github.com/singnet/cogutil/archive/master.tar.gz
 tar -xvf master.tar.gz
 cd cogutil-master/
 mkdir build
@@ -106,7 +106,7 @@ MESSAGE="Installing python packages...." ; message
 cd /tmp
 # cleaning up remnants from previous install failures, if any.
 rm requirements.txt
-wget https://raw.githubusercontent.com/opencog/opencog/master/opencog/python/requirements.txt
+wget https://raw.githubusercontent.com/singnet/opencog/master/opencog/python/requirements.txt
 sudo pip install -v -U -r /tmp/requirements.txt
 rm requirements.txt
 }
@@ -117,7 +117,7 @@ MESSAGE="Installing atomspace...." ; message
 cd /tmp/
 # cleaning up remnants from previous install failures, if any.
 rm -rf master.tar.gz atomspace-master/
-wget https://github.com/opencog/atomspace/archive/master.tar.gz
+wget https://github.com/singnet/atomspace/archive/master.tar.gz
 tar -xvf master.tar.gz
 cd atomspace-master/
 mkdir build

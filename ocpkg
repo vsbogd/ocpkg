@@ -342,6 +342,7 @@ if [ "$SELF_NAME" == "$TOOL_NAME" ] ; then
   echo " -i Install build-job artifacts"
   echo " -c Install Cogutil"
   echo " -a Install AtomSpace"
+  echo " -f Install CogServer"
   echo " -o Install OpenCog"
   echo " -n Install notebook"
   echo " -l {default|java} For installing Link Grammar with java binding '-l java' else '-l default'"
@@ -386,6 +387,7 @@ if [ "$SELF_NAME" == "$TOOL_NAME" ] ; then
       p)	INSTALL_OPENCOG_PYTHON_PACKAGES=true ;;
       c)	INSTALL_COGUTIL=true ;;
       a)	INSTALL_ATOMSPACE=true ;;
+      f)	INSTALL_COGSERVER=true ;;
       o)	INSTALL_OPENCOG=true ;;
       l)	if [ "$OPTARG" == "default" ]; then
         	  INSTALL_LINK_GRAMMAR=true
@@ -855,10 +857,23 @@ MESSAGE="Finished installation" ; message
 # Install AtomSpace
 install_atomspace(){
 install_opencog_github_repo atomspace
+install_opencog_github_repo ure
+}
+
+# Install CogServer
+install_cogserver(){
+install_opencog_github_repo cogserver
 }
 
 # Install OpenCog
 install_opencog(){
+install_opencog_github_repo miner
+install_opencog_github_repo learn
+install_opencog_github_repo cogserver
+install_opencog_github_repo attention
+install_opencog_github_repo spacetime
+install_opencog_github_repo pattern-index
+install_opencog_github_repo visualization
 install_opencog_github_repo opencog
 }
 
@@ -1277,6 +1292,7 @@ if [ "$SELF_NAME" == "$TOOL_NAME" ] ; then
     if [ $INSTALL_OPENCOG_PYTHON_PACKAGES ] ; then install_opencog_python_packages ; fi
     if [ $INSTALL_COGUTIL ] ; then install_cogutil ; fi
     if [ $INSTALL_ATOMSPACE ] ; then install_atomspace ; fi
+    if [ $INSTALL_COGSERVER ] ; then install_cogserver ; fi
     if [ $INSTALL_NOTEBOOKS ] ; then install_notebooks ; fi
     if [ $INSTALL_OPENCOG ] ; then install_opencog ; fi
     if [ $INSTALL_LINK_GRAMMAR ] ; then install_link_grammar ; fi

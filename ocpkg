@@ -843,14 +843,15 @@ install_opencog_github_repo cogserver
 
 # Install OpenCog
 install_opencog(){
+install_opencog_github_repo pln
 install_opencog_github_repo miner
-install_opencog_github_repo learn
 install_opencog_github_repo cogserver
 install_opencog_github_repo attention
 install_opencog_github_repo spacetime
 install_opencog_github_repo pattern-index
 install_opencog_github_repo visualization
 install_opencog_github_repo opencog
+install_opencog_github_repo learn
 }
 
 # Install MOSES
@@ -1003,9 +1004,7 @@ PYTHON_PATH=$(readlink -f /usr/bin/python3)
 
 # Update or install python tools
 sudo python3 -m pip install -U pip
-# See https://github.com/opencog/atomspace/issues/2213 for why ~=0.23.5 is
-# choosen.
-sudo python3 -m pip install -U cython~=0.23.5
+sudo python3 -m pip install -U cython
 
 # Install guile >2.2 also install bdwgc for language-learning
 install_guile

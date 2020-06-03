@@ -172,6 +172,12 @@ PACKAGES_BUILD=" build-essential \
 		libreadline-dev \
 		libcpprest \
 		libltdl-dev \
+		automake \
+		libtool \
+		autoconf-archive \
+		pkg-config \
+		swig \
+		flex \
 		"
 		#liblua5.1-0-dev \
 		#libxmlrpc-c3-dev \
@@ -859,6 +865,8 @@ install_moses(){
 install_opencog_github_repo moses
 }
 
+LINKGRAMMAR_VERSION=5.8.0
+
 # Install Link-Grammar
 install_link_grammar(){
 MESSAGE="Installing Link-Grammar...." ; message
@@ -866,15 +874,18 @@ cd /tmp/
 # cleaning up remnants from previous install failures, if any.
 rm -rf link-grammar-5.*/
 if [ $# -eq 1 ]; then
-  wget http://www.abisource.com/downloads/link-grammar/${1}/link-grammar-${1}.tar.gz
+  wget https://github.com/opencog/link-grammar/archive/link-grammar-${1}.tar.gz
   tar -zxf link-grammar-5*.tar.gz
+  mv link-grammar-link-grammar-${1} link-grammar-${1}
+  cd link-grammar-5.*/
+  ./autogen.sh --no-configure
 else
   wget -r --no-parent -nH --cut-dirs=2 \
     http://www.abisource.com/downloads/link-grammar/current/
   tar -zxf current/link-grammar-5*.tar.gz
   rm -r current
+  cd link-grammar-5.*/
 fi
-cd link-grammar-5.*/
 mkdir build
 cd build
 if [ $INSTALL_JAVA_LINK_GRAMMAR ]; then
@@ -1262,8 +1273,8 @@ if [ "$SELF_NAME" == "$TOOL_NAME" ] ; then
     if [ $INSTALL_COGSERVER ] ; then install_cogserver ; fi
     if [ $INSTALL_NOTEBOOKS ] ; then install_notebooks ; fi
     if [ $INSTALL_OPENCOG ] ; then install_opencog ; fi
-    if [ $INSTALL_LINK_GRAMMAR ] ; then install_link_grammar ; fi
-    if [ $INSTALL_JAVA_LINK_GRAMMAR ] ; then install_link_grammar ; fi
+    if [ $INSTALL_LINK_GRAMMAR ] ; then install_link_grammar $LINKGRAMMAR_VERSION; fi
+    if [ $INSTALL_JAVA_LINK_GRAMMAR ] ; then install_link_grammar $LINKGRAMMAR_VERSION; fi
     if [ $INSTALL_MOSES ] ; then install_moses ; fi
     if [ $INSTALL_GUILE ] ; then install_guile ; fi
     if [ $BUILD_SOURCE ] ; then build_source ; fi
